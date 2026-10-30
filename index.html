@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es" data-theme="neutral">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Biblioteca de Efectos</title>
+  <meta name="description" content="Biblioteca de efectos de video con intención: demos en vivo, parámetros con sliders y guía de cuándo usar cada efecto." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23111'/%3E%3Cpath d='M11 8l14 8-14 8z' fill='%23d7ff1f'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,800;0,900;1,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/styles.css" />
+  <!-- GSAP vendorizado (misma versión que usa la plantilla de HyperFrames) -->
+  <script src="vendor/gsap.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#/">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">Biblioteca de efectos <em>con intención</em></span>
+    </a>
+    <nav class="topnav">
+      <a href="#/guia">Cómo dirigir</a>
+      <a href="effects-index.json" target="_blank" rel="noopener">effects-index.json</a>
+      <div class="theme-toggle" role="group" aria-label="Tema">
+        <button type="button" data-set-theme="neutral">Neutro</button>
+        <button type="button" data-set-theme="fluo">Fluo</button>
+      </div>
+    </nav>
+  </header>
+  <main id="app" aria-live="polite"></main>
+  <footer class="foot">
+    <span>Cada efecto es un módulo GSAP determinista: la misma pieza de código sirve para esta demo y para renderizar video con HyperFrames.</span>
+  </footer>
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>

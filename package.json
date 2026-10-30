@@ -1,0 +1,17 @@
+{
+  "name": "video-effects-library",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Biblioteca de efectos de video con intención: demos GSAP deterministas, compatibles con HyperFrames.",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/serve.mjs 4321",
+    "validate": "node scripts/validate-index.mjs",
+    "screenshots": "node scripts/screenshots.mjs",
+    "export": "node scripts/export-hyperframes.mjs"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "playwright": "^1.49.1"
+  }
+}

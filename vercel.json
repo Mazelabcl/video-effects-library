@@ -1,0 +1,6 @@
+{
+  "installCommand": "echo \"Sitio estático: no se instalan dependencias\"",
+  "buildCommand": "node scripts/validate-index.mjs",
+  "outputDirectory": ".",
+  "cleanUrls": false
+}
