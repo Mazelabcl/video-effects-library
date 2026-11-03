@@ -2,3 +2,7 @@ node_modules/
 *.mp4
 renders/
 .DS_Store
+
+# Claves locales: nunca se suben
+.env
+.env.*
