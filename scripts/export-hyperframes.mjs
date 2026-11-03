@@ -51,21 +51,24 @@ const vars = theme === 'fluo' ? `${neutralVars}\n${fluoVars}` : neutralVars;
 const PORT = 4398;
 const server = spawn(process.execPath, [join(root, 'scripts/serve.mjs'), String(PORT)], { stdio: 'ignore' });
 await new Promise((r) => setTimeout(r, 600));
-let duration;
+let duration, SW = 1920, SH = 1080;
 const browser = await chromium.launch({ channel: 'chrome' });
 try {
   const page = await browser.newPage();
   await page.goto(`http://localhost:${PORT}/`);
   await page.waitForSelector('#app *', { state: 'attached' });
-  duration = await page.evaluate(async ({ id, params }) => {
+  ({ duration, w: SW, h: SH } = await page.evaluate(async ({ id, params }) => {
     await document.fonts.ready;
     const { makeCtx } = await import('/src/core/kit.js');
     const fx = (await import(`/src/effects/${id}.js`)).default;
+    // Tamaño del escenario: 1920x1080 salvo que el efecto declare otro (formato 9:16).
+    const size = fx.size ? fx.size(params) : { w: 1920, h: 1080 };
     const stage = document.createElement('div');
     stage.className = 'stage';
+    Object.assign(stage.style, { width: `${size.w}px`, height: `${size.h}px` });
     document.body.appendChild(stage);
-    return fx.build(stage, params, makeCtx(stage)).duration();
-  }, { id, params });
+    return { duration: fx.build(stage, params, makeCtx(stage)).duration(), ...size };
+  }, { id, params }));
 } finally { await browser.close(); server.kill(); }
 const dur = Math.ceil(duration * 30) / 30;
 
@@ -73,7 +76,7 @@ const html = `<!doctype html>
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=1920, height=1080" />
+<meta name="viewport" content="width=${SW}, height=${SH}" />
 <!-- Generado por scripts/export-hyperframes.mjs · efecto: ${id} · tema: ${theme} -->
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,800;0,900;1,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600&display=block" rel="stylesheet" />
 <style>
@@ -81,13 +84,13 @@ const html = `<!doctype html>
 ${vars}
 }
 body { margin: 0; background: #000; }
-#root { position: relative; width: 1920px; height: 1080px; overflow: hidden; }
+#root { position: relative; width: ${SW}px; height: ${SH}px; overflow: hidden; }
 .stage { position: absolute; inset: 0; overflow: hidden; background: var(--s-bg); color: var(--s-ink); font-family: var(--s-font); }
 </style>
 <script>${gsapSrc}</script>
 </head>
 <body>
-<div id="root" data-composition-id="main" data-start="0" data-duration="${dur}" data-width="1920" data-height="1080">
+<div id="root" data-composition-id="main" data-start="0" data-duration="${dur}" data-width="${SW}" data-height="${SH}">
   <div id="stage" class="stage clip" data-start="0" data-duration="${dur}" data-track-index="1"></div>
 </div>
 <script>

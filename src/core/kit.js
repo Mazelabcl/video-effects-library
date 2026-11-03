@@ -130,6 +130,34 @@ export const DISPLAY = { fontFamily: 'var(--s-font)', fontWeight: 'var(--s-weigh
 export const SERIF = { fontFamily: 'var(--s-serif)', fontStyle: 'italic', fontWeight: '400', letterSpacing: '-0.01em' };
 export const MONO = { fontFamily: '"JetBrains Mono", ui-monospace, monospace', fontSize: '26px', letterSpacing: '0.08em', textTransform: 'uppercase' };
 
+// Colores elegibles en los selectores "color" de los efectos: tokens del tema
+// activo (así un mismo efecto respeta Neutro y Fluo). Si el parámetro llega como
+// hex (#rrggbb) desde un params.json —p. ej. el color de marca del cliente— se usa tal cual.
+const TONE_VAR = { acento: '--s-accent', acento2: '--s-accent2', acento3: '--s-accent3', tinta: '--s-ink', apagado: '--s-muted' };
+const TONE_KEY = { acento: 'accent', acento2: 'accent2', acento3: 'accent3', tinta: 'ink', apagado: 'muted' };
+const isHex = (k) => /^#[0-9a-f]{3,8}$/i.test(String(k));
+export function tone(k) { return isHex(k) ? k : `var(${TONE_VAR[k] || TONE_VAR.acento})`; }
+// Igual que tone() pero resuelto a hex: canvas y SVG con mezclas no entienden var().
+export function toneHex(colors, k) { return isHex(k) ? k : colors[TONE_KEY[k] || 'accent']; }
+
+// Tamaño del escenario según formato: 16:9 (1920x1080) o 9:16 (1080x1920, redes).
+// Los efectos con parámetro "formato" exportan size: (p) => stageSize(p.formato);
+// la galería y el exportador de HyperFrames leen ese tamaño.
+export function stageSize(formato) { return formato === '9:16' ? { w: 1080, h: 1920 } : { w: W, h: H }; }
+
+// Formato numérico en español (miles con punto, decimales con coma).
+export function fmtNum(v, dec = 0) {
+  const [i, d] = Math.abs(v).toFixed(dec).split('.');
+  return (v < 0 ? '−' : '') + i.replace(/\B(?=(\d{3})+(?!\d))/g, '.') + (d ? ',' + d : '');
+}
+
+// Hash entero determinista (para "ruido" que depende del fotograma, sin estado).
+export function hash3(a, b, c) {
+  let h = (a * 374761393 + b * 668265263 + c * 2147483647) | 0;
+  h = Math.imul(h ^ (h >>> 13), 1274126177);
+  return ((h ^ (h >>> 16)) >>> 0) / 4294967296;
+}
+
 // Contador de ids únicos (filtros SVG, clipPaths) para que varias demos convivan.
 let uid = 0;
 export const nextId = (p = 'fx') => `${p}-${++uid}`;

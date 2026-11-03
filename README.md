@@ -1,6 +1,6 @@
 # Biblioteca de efectos con intención
 
-Galería web de **20 efectos de video** (transiciones, tipografía cinética, cámara, easing, ritmo, máscaras, partículas, color, pantalla dividida y datos). Cada efecto:
+Galería web de **51 efectos de video** (transiciones, tipografía cinética, cámara, easing, ritmo, máscaras, partículas, color, pantalla dividida, datos, fondos y ambiente, logos, y redes y formatos). Cada efecto:
 
 - se ve **en vivo** y se ajusta con **sliders** (duración, curva, intensidad, dirección…);
 - trae un panel de **intención**: qué siente el espectador, cuándo usarlo, cuándo evitarlo y el mal uso típico;
@@ -87,6 +87,14 @@ Alternativa gratuita: GitHub Pages (Settings → Pages → Deploy from branch �
 - `vendor/gsap.min.js`: GSAP 3.14.2 (licencia estándar gratuita, uso comercial permitido).
 - `docs/investigacion.md`: la investigación de stacks, licencias y principios, con fuentes.
 - `skill/video-director/SKILL.md`: borrador de la skill que dirige videos usando esta biblioteca.
+
+### Color de marca y formato vertical
+- Los parámetros **Color** ofrecen los tokens del tema (`acento`, `acento2`, `acento3`, `tinta`). En un `params.json` también se puede escribir un hex, por ejemplo `"color": "#e4002b"`, para usar el color de marca del cliente.
+- Los efectos de la familia **Redes y formatos** tienen el parámetro **Formato** (`16:9` o `9:16`). Con `9:16` el exportador genera una composición vertical real de 1080x1920 (lista para Reels, TikTok o Shorts):
+  ```powershell
+  node scripts/export-hyperframes.mjs subtitulos-karaoke vertical.json --out=renders/subtitulos-vertical
+  ```
+  (donde `vertical.json` contiene `{"formato": "9:16"}`; en la galería el escenario vertical se ve centrado con bandas a los lados)
 
 ### Agregar un efecto nuevo
 1. Crea `src/effects/mi-efecto.js` copiando uno parecido.

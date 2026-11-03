@@ -32,12 +32,16 @@ function defaults(meta) {
   return Object.fromEntries(meta.params.map((p) => [p.key, p.default]));
 }
 
-// Escala el escenario de 1920x1080 al ancho de su contenedor.
+// Escala el escenario (1920x1080, o 1080x1920 en formato vertical) para que
+// quepa en su contenedor 16:9; un escenario vertical queda centrado con bandas.
 function fitStage(wrap, stage) {
-  const ro = new ResizeObserver(() => {
-    const s = wrap.clientWidth / W;
-    stage.style.transform = `scale(${s})`;
-  });
+  const fit = () => {
+    const w = stage.offsetWidth || W, h = stage.offsetHeight || H;
+    const s = Math.min(wrap.clientWidth / w, wrap.clientHeight / h);
+    stage.style.transform = `translate(${(wrap.clientWidth - w * s) / 2}px, ${(wrap.clientHeight - h * s) / 2}px) scale(${s})`;
+  };
+  stage._fit = fit;
+  const ro = new ResizeObserver(fit);
   ro.observe(wrap);
   return () => ro.disconnect();
 }
@@ -45,6 +49,10 @@ function fitStage(wrap, stage) {
 // Construye el efecto dentro del escenario y devuelve el timeline pausado.
 function buildInto(stage, fx, params) {
   stage.innerHTML = '';
+  const size = fx.size ? fx.size(params) : { w: W, h: H };
+  stage.style.width = `${size.w}px`;
+  stage.style.height = `${size.h}px`;
+  if (stage._fit) stage._fit();
   const tl = fx.build(stage, params, makeCtx(stage, document.documentElement.dataset.theme));
   tl.pause(0);
   return tl;
@@ -87,6 +95,7 @@ const FAMILY_ES = {
   transicion: 'Transiciones', tipografia: 'Tipografía cinética', camara: 'Cámara', easing: 'Easing',
   ritmo: 'Ritmo', mascara: 'Máscaras', particulas: 'Partículas', color: 'Color',
   'pantalla-dividida': 'Pantalla dividida', datos: 'Datos',
+  fondo: 'Fondos y ambiente', logo: 'Logos', social: 'Redes y formatos',
 };
 
 function renderGallery(query) {
