@@ -6,3 +6,10 @@ renders/
 # Claves locales: nunca se suben
 .env
 .env.*
+
+# cerrar-proyecto
+_borrar/
+.cierre/tmp/
+.cierre/tmp-retomar/
+.cierre/registro.json
+!.env.example

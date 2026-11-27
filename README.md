@@ -100,3 +100,23 @@ Alternativa gratuita: GitHub Pages (Settings → Pages → Deploy from branch �
 1. Crea `src/effects/mi-efecto.js` copiando uno parecido.
 2. Agrega su entrada en `effects-index.json` (mismo `id`, parámetros con rangos, intención).
 3. Corre `npm run validate` y `npm run screenshots -- mi-efecto`.
+
+<!-- cerrar-proyecto:inicio -->
+## 💤 Proyecto archivado el 2026-11-27
+
+Se cerró para dejarlo ordenado y recuperable. El código está completo aquí; los renders (videos de demostración) se guardaron aparte.
+Ojo: **otros proyectos leen esta carpeta** (ver `HISTORIA.md`), así que se dejó en su lugar y con sus librerías.
+
+**Para volver a trabajar en él:**
+1. Clonar: `gh repo clone Mazelabcl/video-effects-library`
+2. En PowerShell, dentro de la carpeta: `powershell -ExecutionPolicy Bypass -File .cierre\retomar.ps1`
+   (trae los renders desde la bodega y reinstala las dependencias)
+3. Arrancar: `npm run dev` y abrir http://localhost:4321
+
+| Qué | Dónde quedó |
+|---|---|
+| Código | este repositorio (privado) |
+| Renders de demostración (6 mp4, 3 MB) | Google Drive de Mazelab: `Bodega-Proyectos/Mazelab-interno/video-effects-library/` |
+| Dependencias | se reinstalan con `npm ci` |
+| Requisitos para retomar | `gh` con sesión iniciada y `rclone` con el remoto `gdrive` configurado |
+<!-- cerrar-proyecto:fin -->

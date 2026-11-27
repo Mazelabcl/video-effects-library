@@ -1,0 +1,146 @@
+[
+ {
+  "ruta": "contador-cifra/.hyperframes/history-id",
+  "bytes": 37
+ },
+ {
+  "ruta": "contador-cifra/.hyperframes/render-outputs.json",
+  "bytes": 45
+ },
+ {
+  "ruta": "contador-cifra/.hyperframes/video-state.json",
+  "bytes": 1290
+ },
+ {
+  "ruta": "contador-cifra/contador-cifra.mp4",
+  "bytes": 500792
+ },
+ {
+  "ruta": "contador-cifra/index.html",
+  "bytes": 84514
+ },
+ {
+  "ruta": "contador-cifra/params.json",
+  "bytes": 326
+ },
+ {
+  "ruta": "golpe/.hyperframes/history-id",
+  "bytes": 37
+ },
+ {
+  "ruta": "golpe/.hyperframes/render-outputs.json",
+  "bytes": 36
+ },
+ {
+  "ruta": "golpe/.hyperframes/video-state.json",
+  "bytes": 1272
+ },
+ {
+  "ruta": "golpe/golpe.mp4",
+  "bytes": 271448
+ },
+ {
+  "ruta": "golpe/index.html",
+  "bytes": 83112
+ },
+ {
+  "ruta": "golpe/params.json",
+  "bytes": 224
+ },
+ {
+  "ruta": "logo-brillo/.hyperframes/history-id",
+  "bytes": 37
+ },
+ {
+  "ruta": "logo-brillo/.hyperframes/render-outputs.json",
+  "bytes": 42
+ },
+ {
+  "ruta": "logo-brillo/.hyperframes/video-state.json",
+  "bytes": 1284
+ },
+ {
+  "ruta": "logo-brillo/index.html",
+  "bytes": 85627
+ },
+ {
+  "ruta": "logo-brillo/logo-brillo.mp4",
+  "bytes": 208952
+ },
+ {
+  "ruta": "logo-brillo/params.json",
+  "bytes": 260
+ },
+ {
+  "ruta": "mancha-liquida/.hyperframes/history-id",
+  "bytes": 37
+ },
+ {
+  "ruta": "mancha-liquida/.hyperframes/render-outputs.json",
+  "bytes": 45
+ },
+ {
+  "ruta": "mancha-liquida/.hyperframes/video-state.json",
+  "bytes": 1290
+ },
+ {
+  "ruta": "mancha-liquida/index.html",
+  "bytes": 85932
+ },
+ {
+  "ruta": "mancha-liquida/mancha-liquida.mp4",
+  "bytes": 345781
+ },
+ {
+  "ruta": "mancha-liquida/params.json",
+  "bytes": 239
+ },
+ {
+  "ruta": "subtitulos-karaoke-vertical/.hyperframes/history-id",
+  "bytes": 37
+ },
+ {
+  "ruta": "subtitulos-karaoke-vertical/.hyperframes/render-outputs.json",
+  "bytes": 58
+ },
+ {
+  "ruta": "subtitulos-karaoke-vertical/.hyperframes/video-state.json",
+  "bytes": 1316
+ },
+ {
+  "ruta": "subtitulos-karaoke-vertical/index.html",
+  "bytes": 85730
+ },
+ {
+  "ruta": "subtitulos-karaoke-vertical/params.json",
+  "bytes": 363
+ },
+ {
+  "ruta": "subtitulos-karaoke-vertical/subtitulos-karaoke-vertical.mp4",
+  "bytes": 318087
+ },
+ {
+  "ruta": "ventana/.hyperframes/history-id",
+  "bytes": 37
+ },
+ {
+  "ruta": "ventana/.hyperframes/render-outputs.json",
+  "bytes": 38
+ },
+ {
+  "ruta": "ventana/.hyperframes/video-state.json",
+  "bytes": 1276
+ },
+ {
+  "ruta": "ventana/index.html",
+  "bytes": 85920
+ },
+ {
+  "ruta": "ventana/params.json",
+  "bytes": 198
+ },
+ {
+  "ruta": "ventana/ventana.mp4",
+  "bytes": 1032619
+ }
+]
