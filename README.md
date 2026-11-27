@@ -105,7 +105,9 @@ Alternativa gratuita: GitHub Pages (Settings → Pages → Deploy from branch �
 ## 💤 Proyecto archivado el 2026-11-27
 
 Se cerró para dejarlo ordenado y recuperable. El código está completo aquí; los renders (videos de demostración) se guardaron aparte.
-Ojo: **otros proyectos leen esta carpeta** (ver `HISTORIA.md`), así que se dejó en su lugar y con sus librerías.
+**La carpeta no debe moverse, renombrarse ni aligerarse mientras la skill `video-director` del starter la lea por ruta absoluta.**
+
+La referencian 6 lugares (detalle en `HISTORIA.md`): `yt-venture-starter-final`, `Bot-Growth`, `danza-4-you-platform`, `plug-lab\.sites-local\bold-upstream`, `weddi-app\outputs\starter-bold-reference` y `Fotos-con-ia-3-lab\.tools\bold-ref`.
 
 **Para volver a trabajar en él:**
 1. Clonar: `gh repo clone Mazelabcl/video-effects-library`

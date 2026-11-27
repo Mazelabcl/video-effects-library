@@ -12,9 +12,17 @@
 | 2026-11-02 | 0.1.0 | Se ignoran los archivos `.env` | commit `52a5956` |
 
 ## Quién depende de esta carpeta
-- La skill `video-director` del starter `yt-venture-starter-final` lee `C:\Users\aldot\.gemini\antigravity\scratch\video-effects-library\effects-index.json` por ruta absoluta; si no lo encuentra, se detiene. (fuente: `.claude/skills/video-director/SKILL.md` de ese proyecto)
-- `brazos/directorio.json` de `yt-venture-starter-final` y de `Bot-Growth` nombran la biblioteca como un "brazo" (?).
-- Por eso la carpeta no se movió ni se le borraron las librerías al archivarla.
+**La carpeta no debe moverse, renombrarse ni aligerarse (borrar `node_modules` u otros archivos) mientras la skill `video-director` del starter la lea por ruta absoluta.**
+
+Lugares que la referencian (ruta base `C:\Users\aldot\.gemini\antigravity\scratch\`):
+1. `Mazelab-dev\Side-projects\yt-venture-Starter-Final\yt-venture-starter-final`: su skill `video-director` lee `video-effects-library\effects-index.json` por ruta absoluta y se detiene si no lo encuentra. También la nombran `brazos\directorio.json` y `memory\plan-de-batalla*.json`.
+2. `Mazelab-dev\Side-projects\Bot-Growth`: copia de la skill y `brazos\directorio.json`.
+3. `danza-4-you-platform`: copia de la skill y `brazos\directorio.json`.
+4. `Mazelab-dev\Experimentos\Plug\plug-lab\.sites-local\bold-upstream`: copia del starter.
+5. `Mazelab-dev\Experimentos\Weddi\weddi-app\outputs\starter-bold-reference`: copia del starter.
+6. `Mazelab-dev\Fotos-con-ia-3-lab\.tools\bold-ref`: copia del starter.
+
+Además, `Mazelab-dev\Audit-Games\inventario\zona-c.json` la menciona, pero solo como inventario. La búsqueda se cortó en 30 resultados, así que puede haber más. (fuente: búsqueda de texto del 2026-11-27)
 
 ## Conviene saberlo si se retoma
 - La carpeta debe seguir en la misma ruta absoluta, o hay que actualizar la skill `video-director`.
